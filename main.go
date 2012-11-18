@@ -103,8 +103,7 @@ func channelNameFor(genre string) string {
 }
 
 func recentTracksURLFor(genre string) string {
-        s := fmt.Sprintf("%d", channelIdFor(genre))
-        return "http://api.audioaddict.com/v1/di/track_history/channel/" + s + ".json"
+        return fmt.Sprintf("http://api.audioaddict.com/v1/di/track_history/channel/%d.json", channelIdFor(genre))
 }
 
 func recentTracksFor(genre string) ([]Track, error) {
