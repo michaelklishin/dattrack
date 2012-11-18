@@ -74,7 +74,7 @@ func channelNameFor(genre string) string {
                 result = "Goa/Psy Trance"
         case "psytrance":
                 result = "Goa/Psy Trance"
-        case "libquiddnb":
+        case "liquiddnb":
                 result = "Liquid DnB"
         case "ldnb":
                 result = "Liquid DnB"
