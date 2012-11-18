@@ -4,6 +4,8 @@ DatTrack is a small command line tool for [Digitally Imported](http://di.fm) fan
 
 It displays recent tracks from a particular channel in the shell.
 
+DatTrack was developed as a small code kata excercise and should not be taken seriously.
+
 
 ## Installation
 
