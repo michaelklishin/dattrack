@@ -9,7 +9,7 @@ DatTrack was developed as a small code kata excercise and should not be taken se
 
 ## Installation
 
-From the repository root:
+Assuming you have `~/bin` in `PATH`, from the repository root:
 
     go build
     cp dattrack ~/bin/
@@ -24,7 +24,7 @@ Channel names are currently not parsed in any intelligent way so you have to kno
  * Epic Trance: `et`, `epictrance`
  * Liquid DnB: `ldnb`, `liquiddnb`
  * Club Dubstep: `clubdubstep`, `clubds`
- * Hands Up: `handsup`, ``
+ * Hands Up: `handsup`, `hu`
 
 This will be improved and expanded in future versions.
 

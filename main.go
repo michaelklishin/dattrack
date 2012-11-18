@@ -45,6 +45,8 @@ func channelIdFor(genre string) int {
                 id = 175
         case "handsup":
                 id = 176
+        case "hu":
+                id = 176
         case "clubdubstep":
                 id = 177
         case "clubds":
@@ -77,6 +79,8 @@ func channelNameFor(genre string) string {
         case "et":
                 result = "Epic Trance"
         case "handsup":
+                result = "Hands Up"
+        case "hu":
                 result = "Hands Up"
         case "clubdubstep":
                 result = "Club Dubstep"
