@@ -39,7 +39,7 @@ func channelIdFor(genre string) int {
                 id = 56
         case "eh":
                 id = 56
-        case "libquiddnb":
+        case "liquiddnb":
                 id = 105
         case "ldnb":
                 id = 105
