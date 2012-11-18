@@ -8,6 +8,7 @@ import (
         "net/http"
         "os"
         "flag"
+        "regexp"
 )
 
 type Track struct {
@@ -129,14 +130,21 @@ func recentTracksFor(genre string) ([]Track, error) {
         return tracks, nil
 }
 
+var adTrackTitle, _ = regexp.Compile(`^TSTAG.*`)
+
 func displayTrack(t Track) {
         a := t.Artist
         ti := t.Title
         tr := t.Track
-        if len(a) > 0 {
-                fmt.Printf("* %s — %s\n", a, ti)
+
+        if adTrackTitle.MatchString(tr) == true {
+                fmt.Print("* /advertisement/\n")
         } else {
-                fmt.Printf("* %s\n", tr)
+                if len(a) > 0 {
+                        fmt.Printf("* %s — %s\n", a, ti)
+                } else {
+                        fmt.Printf("* %s\n", tr)
+                }
         }
 }
 
