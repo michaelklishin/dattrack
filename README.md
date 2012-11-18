@@ -24,6 +24,7 @@ Channel names are currently not parsed in any intelligent way so you have to kno
  * Epic Trance: `et`, `epictrance`
  * Liquid DnB: `ldnb`, `liquiddnb`
  * Club Dubstep: `clubdubstep`, `clubds`
+ * Electro House: `electrohouse`
  * Hands Up: `handsup`, `hu`
 
 This will be improved and expanded in future versions.

@@ -35,6 +35,10 @@ func channelIdFor(genre string) int {
                 id = 8
         case "psytrance":
                 id = 8
+        case "electrohouse":
+                id = 56
+        case "eh":
+                id = 56
         case "libquiddnb":
                 id = 105
         case "ldnb":
@@ -78,6 +82,10 @@ func channelNameFor(genre string) string {
                 result = "Epic Trance"
         case "et":
                 result = "Epic Trance"
+        case "electrohouse":
+                result = "Electro House"
+        case "eh":
+                result = "Electro House"
         case "handsup":
                 result = "Hands Up"
         case "hu":
