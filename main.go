@@ -145,6 +145,7 @@ func displayTracks(xs []Track, limit int, channel string) {
 }
 
 var channel = flag.String("channel", "epictrance", "di.fm channel to use")
+var limit   = flag.Int("limit", 5, "How many recent tracks to display")
 
 func main() {
         flag.Parse()
@@ -154,7 +155,7 @@ func main() {
                 fmt.Printf("Got an error: %s", err)
                 os.Exit(1)
         } else {
-                displayTracks(tracks, 5, *channel)
+                displayTracks(tracks, *limit, *channel)
         }
 
         os.Exit(0)

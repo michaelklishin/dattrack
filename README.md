@@ -17,7 +17,7 @@ From the repository root:
 
 ## Usage
 
-    dattrack [--channel NAME]
+    dattrack [--channel NAME --limit LIMIT]
 
 Channel names are currently not parsed in any intelligent way so you have to know them:
 
