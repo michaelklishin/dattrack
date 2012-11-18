@@ -132,19 +132,29 @@ func recentTracksFor(genre string) ([]Track, error) {
 
 var adTrackTitle, _ = regexp.Compile(`^TSTAG.*`)
 
-func displayTrack(t Track) {
+func displayAdTrack(t Track) {
+        fmt.Print("* /advertisement/\n")
+}
+
+func displayMusicTrack(t Track) {
         a := t.Artist
         ti := t.Title
         tr := t.Track
 
-        if adTrackTitle.MatchString(tr) == true {
-                fmt.Print("* /advertisement/\n")
+        if len(a) > 0 {
+                fmt.Printf("* %s — %s\n", a, ti)
         } else {
-                if len(a) > 0 {
-                        fmt.Printf("* %s — %s\n", a, ti)
-                } else {
-                        fmt.Printf("* %s\n", tr)
-                }
+                fmt.Printf("* %s\n", tr)
+        }       
+}
+
+func displayTrack(t Track) {
+        tr := t.Track
+
+        if adTrackTitle.MatchString(tr) == true {
+                displayAdTrack(t)
+        } else {
+                displayMusicTrack(t)
         }
 }
 
