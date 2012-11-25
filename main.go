@@ -56,6 +56,10 @@ func channelIdFor(genre string) int {
                 id = 177
         case "clubds":
                 id = 177
+        case "glitchhop":
+                id = 198
+        case "gh":
+                id = 198
         default:
                 id = 175
         }
@@ -95,6 +99,10 @@ func channelNameFor(genre string) string {
                 result = "Club Dubstep"
         case "clubds":
                 result = "Club Dubstep"
+        case "glitchhop":
+                result = "Glitch Hop"
+        case "gh":
+                result = "Glitch Hop"
         default:
                 result = "Epic Trance"
         }

@@ -26,6 +26,7 @@ Channel names are currently not parsed in any intelligent way so you have to kno
  * Club Dubstep: `clubdubstep`, `clubds`
  * Electro House: `electrohouse`
  * Hands Up: `handsup`, `hu`
+ * Glitch Hop: `glitchhup`, `gh`
 
 This will be improved and expanded in future versions.
 
