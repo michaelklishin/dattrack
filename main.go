@@ -138,6 +138,7 @@ func recentTracksFor(genre string) ([]Track, error) {
 }
 
 var adTrackTitle, _ = regexp.Compile(`^TSTAG.*`)
+var separatorRe, _ = regexp.Compile(`\s-\s`)
 
 func displayAdTrack(t Track) {
         fmt.Print("* /advertisement/\n")
@@ -146,7 +147,7 @@ func displayAdTrack(t Track) {
 func displayMusicTrack(t Track) {
         a := t.Artist
         ti := t.Title
-        tr := t.Track
+        tr := separatorRe.ReplaceAllString(t.Track, " — ")
 
         if len(a) > 0 {
                 fmt.Printf("* %s — %s\n", a, ti)
