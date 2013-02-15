@@ -11,8 +11,13 @@ DatTrack was developed as a small code kata excercise and should not be taken se
 
 Assuming you have `~/bin` in `PATH`, from the repository root:
 
+    ./install.sh
+
+Alternatively you can build `dattrack` manually and copy it
+anywhere in `PATH`:
+
     go build
-    cp dattrack ~/bin/
+    cp dattrack /usr/local/bin/
 
 
 ## Usage
