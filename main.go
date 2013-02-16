@@ -141,7 +141,7 @@ func recentTracksFor(genre string) ([]Track, error) {
         return tracks, nil
 }
 
-var adTrackTitle, _ = regexp.Compile(`^TSTAG.*`)
+var adTrackTitle, _ = regexp.Compile(`^(TSTAG.*)|(Choose premium for)`)
 var separatorRe, _ = regexp.Compile(`\s-\s`)
 
 func displayAdTrack(t Track) {
