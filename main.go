@@ -9,6 +9,10 @@ import (
         "os"
         "flag"
         "regexp"
+        "os/exec"
+        "log"
+        "strings"
+        "runtime"
 )
 
 type Track struct {
@@ -144,22 +148,31 @@ func displayAdTrack(t Track) {
         fmt.Print("* /advertisement/\n")
 }
 
-func displayMusicTrack(t Track) {
+func formatMusicTrack(t Track) string {
         a := t.Artist
         ti := t.Title
         tr := separatorRe.ReplaceAllString(t.Track, " — ")
 
+        var s string
         if len(a) > 0 {
-                fmt.Printf("* %s — %s\n", a, ti)
+                s = fmt.Sprintf("%s — %s", a, ti)
         } else {
-                fmt.Printf("* %s\n", tr)
-        }       
+                s = fmt.Sprintf("%s", tr)
+        }
+
+        return s
+}
+
+func displayMusicTrack(t Track) {
+        fmt.Printf(" * %s\n", formatMusicTrack(t))
+}
+
+func isAdvertisement(t Track) bool {
+        return adTrackTitle.MatchString(t.Track) == true
 }
 
 func displayTrack(t Track) {
-        tr := t.Track
-
-        if adTrackTitle.MatchString(tr) == true {
+        if isAdvertisement(t) {
                 displayAdTrack(t)
         } else {
                 displayMusicTrack(t)
@@ -182,8 +195,40 @@ func displayTracks(xs []Track, limit int, channel string) {
         fmt.Printf("\n")
 }
 
+func firstMusicTrackFrom(xs []Track) Track {
+        var tr Track
+
+        for i := 0; i < len(xs); i++ {
+                t := xs[i]
+                if !isAdvertisement(t) {
+                        tr = t
+                        break
+                }
+        }
+
+        return tr
+}
+
+func copyOnOSX(s string) {
+        cmd := exec.Command("pbcopy")
+        cmd.Stdin = strings.NewReader(s)
+        err := cmd.Run()
+
+        if err != nil {
+                log.Fatal(err)
+        }
+}
+
+func copyToClipboard(s string) {
+        switch runtime.GOOS {
+        case "darwin":
+                copyOnOSX(s)
+        }
+}
+
 var channel = flag.String("channel", "epictrance", "di.fm channel to use")
 var limit   = flag.Int("limit", 5, "How many recent tracks to display")
+var copy    = flag.Bool("copy", false, "Copy the topmost non-advertisement track to the pastebin")
 
 func main() {
         flag.Parse()
@@ -194,6 +239,14 @@ func main() {
                 os.Exit(1)
         } else {
                 displayTracks(tracks, *limit, *channel)
+        }
+
+        if *copy {
+                tr := firstMusicTrackFrom(tracks)
+                s := formatMusicTrack(tr)
+
+                fmt.Printf("\nCopying %s\n", s)
+                copyToClipboard(s)
         }
 
         os.Exit(0)
