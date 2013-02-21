@@ -145,7 +145,7 @@ var adTrackTitle, _ = regexp.Compile(`^(TSTAG.*)|(Choose premium for)`)
 var separatorRe, _ = regexp.Compile(`\s-\s`)
 
 func displayAdTrack(t Track) {
-        fmt.Print("* /advertisement/\n")
+        fmt.Print(" * /advertisement/\n")
 }
 
 func formatMusicTrack(t Track) string {
