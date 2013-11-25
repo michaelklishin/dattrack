@@ -40,6 +40,10 @@ func channelIdFor(genre string) int {
                 id = 8
         case "psytrance":
                 id = 8
+        case "breaks":
+                id = 15
+        case "break":
+                id = 15
         case "electrohouse":
                 id = 56
         case "eh":
